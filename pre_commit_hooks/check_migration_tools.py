@@ -30,23 +30,23 @@ DFTL_VALID_ODOO_VERSIONS = [ '15.0',
 ]
 
 
-def check_migration_folder(dir_list,condition_failed):
-    """checks if the uploded module has migration folder
-    Returns: The value condition_failed = true if module hs 
-    migration folder  
-    """
-    for directory in dir_list:
-        path = os.getcwd()+'/'+directory
-        for path in os.listdir(path):
-            if path =='migrations':
-                condition_failed = True
-                print(
-                    f'[MF813].'
-                    f'{directory} contain migration folder '
-                    f'No migrations folder should be included '
-                    f'in any changed files'
-                )
-    return condition_failed
+# def check_migration_folder(dir_list,condition_failed):
+#     """checks if the uploded module has migration folder
+#     Returns: The value condition_failed = true if module hs
+#     migration folder
+#     """
+#     for directory in dir_list:
+#         path = os.getcwd()+'/'+directory
+#         for path in os.listdir(path):
+#             if path =='migrations':
+#                 condition_failed = True
+#                 print(
+#                     f'[MF813].'
+#                     f'{directory} contain migration folder '
+#                     f'No migrations folder should be included '
+#                     f'in any changed files'
+#                 )
+#     return condition_failed
 
 
 def version_check(filename, condition_failed):
@@ -228,13 +228,13 @@ def main(argv: Sequence[str] | None = None) -> int:
                 condition_failed = check_state_type(filename, condition_failed)
 
         #  checks for manifest  file
-        is_manifest = file_name in MANIFEST_FILES
-        if is_manifest:
-            condition_failed = version_check(filename,condition_failed)
-        dir1 = os.path.dirname(filename).split('/')
-        if dir1[0] != '':
-            dir_list.append(dir1[0])
-    dir_list = set(dir_list)
+    #     is_manifest = file_name in MANIFEST_FILES
+    #     if is_manifest:
+    #         condition_failed = version_check(filename,condition_failed)
+    #     dir1 = os.path.dirname(filename).split('/')
+    #     if dir1[0] != '':
+    #         dir_list.append(dir1[0])
+    # dir_list = set(dir_list)
     # condition_failed = check_migration_folder(dir_list,condition_failed)
 
 
