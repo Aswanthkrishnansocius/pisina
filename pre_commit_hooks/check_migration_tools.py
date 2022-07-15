@@ -169,7 +169,7 @@ def check_field_type(filename, condition_failed):
     print("using inspect")
     for name,obj in inspect.getmembers(filename):
         if inspect.isclass(obj):
-            print("check obj is class",obj)
+            print("check class",obj)
             print("check name", name)
     print("using enumarator")
     with open(filename, 'r') as fp:
