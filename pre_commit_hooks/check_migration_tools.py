@@ -166,14 +166,13 @@ def check_invisible_readonly(xml_file,condition_failed):
 
 def check_field_type(filename, condition_failed):
     """Function to check py file contain type or not"""
-    print("using enumarator")
+    print("using inspect")
     for name,obj in inspect.getmembers(filename):
         if inspect.isclass(obj):
-            print(obj)
-            print(name)
-
+            print("check obj is class",obj)
+            print("check name", name)
+    print("using enumarator")
     with open(filename, 'r') as fp:
-        
         print("file opened as r")
         for l_no, line in enumerate(fp):
             print("enumarator loop", l_no)
@@ -182,7 +181,6 @@ def check_field_type(filename, condition_failed):
             if 'type' in line:
                 condition_failed = True
                 print('string found in a file')
-
     return condition_failed
 
 
