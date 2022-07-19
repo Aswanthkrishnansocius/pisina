@@ -173,7 +173,7 @@ def check_field_type(filename, condition_failed):
             print("enumarator loop", l_no)
             print("enumarator loop line", line)
             # search string
-            if 'type' in line:
+            if 'fields.One2many' in line:
                 condition_failed = True
                 print('string found in a file')
     return condition_failed
