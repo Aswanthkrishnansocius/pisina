@@ -176,7 +176,7 @@ def check_field_type(filename, condition_failed):
         # print("tree", tree)
         # dum = ast.dump(tree)
         # print("doc", dum)
-        # print(ast.dump(ast.parse(fp.read())))
+        print(ast.dump(ast.parse(fp)))
         # dum = ast.dump(ast.parse(fp.read()))
         # for node in dum:
         #     print("node in dum", node)
