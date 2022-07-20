@@ -144,6 +144,7 @@ def check_invisible_readonly(xml_file,condition_failed):
         'invisible',
     }
     directive_attrs = '|'.join('@%s' % d for d in deprecated_directives)
+    print("directive_attrs", directive_attrs)
     xpath = '|'.join(
         '/%s//*[%s]' % (tag, directive_attrs)
         for tag in ('odoo', 'openerp')
@@ -168,14 +169,29 @@ def check_field_type(filename, condition_failed):
     """Function to check py file contain type or not"""
     print("using inspect")
     with open(filename, 'r') as fp:
-        print("file opened as r")
+        # print("file opened as r")
         for l_no, line in enumerate(fp):
-            print("enumarator loop", l_no)
-            print("enumarator loop line", line)
+            # print("enumarator loop", l_no)
+            # print("enumarator loop line", line)
             # search string
             if 'fields.One2many' in line:
                 condition_failed = True
-                print('one2many field found in a file')
+                # print('one2many field found in a file')
+    tree = ast.parse(filename)
+    print("tree", tree)
+
+
+    deprecated_directives = {
+        'ondelete',
+        'One2Many',
+    }
+    directive_attrs = '|'.join('@%s' % d for d in deprecated_directives)
+    print("directive_attrs", directive_attrs)
+    xpath = '|'.join(
+        '/%s//*[%s]' % (tag, directive_attrs)
+        for tag in ('odoo', 'openerp')
+    )
+    print("xpath", xpath)
     return condition_failed
 
 
