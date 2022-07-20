@@ -170,10 +170,10 @@ def check_field_type(filename, condition_failed):
     print("using inspect")
     with open(filename, 'r') as fp:
         # print("file opened as r")
-        tree = ast.parse(fp)
-        print("tree", tree)
-        dum = ast.dump(tree)
-        print("doc", dum)
+        # tree = ast.parse(fp)
+        # print("tree", tree)
+        # dum = ast.dump(tree)
+        # print("doc", dum)
         for l_no, line in enumerate(fp):
             # print("enumarator loop", l_no)
             # print("enumarator loop line", line)
@@ -235,7 +235,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     # print(f_py_file)
                     # print(f_py_file.read())
                     # print(f_manifest.read())
-                    # print(ast.dump(ast.parse(f_py_file.read())))
+                    print(ast.dump(ast.parse(f_py_file.read())))
                     print("function calling")
                 condition_failed = check_field_type(filename, condition_failed)
                 condition_failed = check_state_type(filename, condition_failed)
