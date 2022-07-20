@@ -175,7 +175,7 @@ def check_field_type(filename, condition_failed):
             # search string
             if 'fields.One2many' in line:
                 condition_failed = True
-                print('string found in a file')
+                print('one2many field found in a file')
     return condition_failed
 
 
