@@ -79,6 +79,7 @@ def parse_xml(xml_file, raise_if_error=False):
     try:
         with open(xml_file, "rb") as f_obj:
             doc = etree.parse(f_obj)
+            print("doc in xml", doc)
     except etree.XMLSyntaxError as xmlsyntax_error_exception:
         if raise_if_error:
             raise xmlsyntax_error_exception
@@ -175,12 +176,10 @@ def check_field_type(filename, condition_failed):
         # print("tree", tree)
         # dum = ast.dump(tree)
         # print("doc", dum)
-        print(ast.dump(ast.parse(fp.read())))
-        dum = ast.dump(ast.parse(fp.read()))
-        for node in dum:
-            print("node in dum", node)
-            print("node in node.attr", node.attr)
-            print("node in node.arg", node.arg)
+        # print(ast.dump(ast.parse(fp.read())))
+        # dum = ast.dump(ast.parse(fp.read()))
+        # for node in dum:
+        #     print("node in dum", node)
         for l_no, line in enumerate(fp):
             # print("enumarator loop", l_no)
             # print("enumarator loop line", line)
