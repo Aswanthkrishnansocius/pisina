@@ -152,6 +152,7 @@ def check_invisible_readonly(xml_file,condition_failed):
     doc = get_xml_records(xml_file)
     print("doc in invisible", doc)
     for node in doc.xpath(xpath):
+        print("node.attrib", node.attrib)
         directive = next(
             iter(set(node.attrib) & deprecated_directives))
         if directive:
@@ -175,6 +176,11 @@ def check_field_type(filename, condition_failed):
         # dum = ast.dump(tree)
         # print("doc", dum)
         print(ast.dump(ast.parse(fp.read())))
+        dum = ast.dump(ast.parse(fp.read()))
+        for node in dum:
+            print("node in dum", node)
+            print("node in node.attr", node.attr)
+            print("node in node.arg", node.arg)
         for l_no, line in enumerate(fp):
             # print("enumarator loop", l_no)
             # print("enumarator loop line", line)
