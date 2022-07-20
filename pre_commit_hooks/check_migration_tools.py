@@ -170,7 +170,7 @@ def check_field_type(filename, condition_failed):
     print("using inspect")
     with open(filename, 'r') as fp:
         # print("file opened as r")
-        tree = ast.parse(filename)
+        tree = ast.parse(fp)
         print("tree", tree)
         dum = ast.dump(tree)
         print("doc", dum)
