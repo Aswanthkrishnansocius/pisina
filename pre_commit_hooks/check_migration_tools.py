@@ -168,12 +168,13 @@ def check_invisible_readonly(xml_file,condition_failed):
 def check_field_type(filename, condition_failed):
     """Function to check py file contain type or not"""
     print("using inspect")
-    with open(filename, 'r') as fp:
+    with open(filename) as fp:
         # print("file opened as r")
         # tree = ast.parse(fp)
         # print("tree", tree)
         # dum = ast.dump(tree)
         # print("doc", dum)
+        print(ast.dump(ast.parse(fp.read())))
         for l_no, line in enumerate(fp):
             # print("enumarator loop", l_no)
             # print("enumarator loop line", line)
@@ -235,7 +236,6 @@ def main(argv: Sequence[str] | None = None) -> int:
                     # print(f_py_file)
                     # print(f_py_file.read())
                     # print(f_manifest.read())
-                    print(ast.dump(ast.parse(f_py_file.read())))
                     print("function calling")
                 condition_failed = check_field_type(filename, condition_failed)
                 condition_failed = check_state_type(filename, condition_failed)
