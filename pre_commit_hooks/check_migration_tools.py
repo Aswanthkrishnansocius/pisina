@@ -170,6 +170,10 @@ def check_field_type(filename, condition_failed):
     print("using inspect")
     with open(filename, 'r') as fp:
         # print("file opened as r")
+        tree = ast.parse(filename)
+        print("tree", tree)
+        dum = ast.dump(tree)
+        print("doc", dum)
         for l_no, line in enumerate(fp):
             # print("enumarator loop", l_no)
             # print("enumarator loop line", line)
@@ -177,10 +181,7 @@ def check_field_type(filename, condition_failed):
             if 'fields.One2many' in line:
                 condition_failed = True
                 # print('one2many field found in a file')
-    tree = ast.parse(filename)
-    print("tree", tree)
-    dum = ast.dump(tree)
-    print("doc", dum)
+
 
     deprecated_directives = {
         'ondelete',
